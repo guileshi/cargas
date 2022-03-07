@@ -1,245 +1,290 @@
 <template>
-    <header> 
-        <nav class="navbar__top">
-            <div class="container-fluid navBackground">
-                <div class="container">
-                    <div class="row d-flex justify-content-between">
-                        <div class="col-lg-auto col-12">
-                            <a href="#" class="d-flex justify-content-center d-lg-block justify-lg-content-start">
-                                <img src="./../assets/logo-base.png" alt="Logo escrito Cargas" class="logo">
-                            </a>
-                        </div>
+  <header>
+    <nav class="navbar__top">
+      <div class="container-fluid navBackground">
+        <div class="container">
+          <div class="row d-flex justify-content-between">
+            <div class="col-lg-auto col-12">
+              <a
+                href="#"
+                class="
+                  d-flex
+                  justify-content-center
+                  d-lg-block
+                  justify-lg-content-start
+                "
+              >
+                <CargasLogoBase 
+                
+                v-if="!CargasHero.isFixed" key="navbar"
 
-                        <div class="col-lg-auto col-12">
-                            <ul class="navbar__ul__links d-flex justify-content-evenly">
-                                <li>
-                                    <a href="#" class="navbar__link">
-                                        <div class="col-12 navbar__link__icon">
-                                            <fa icon="home" />
-                                        </div>
-                                        <span>Inicio</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="navbar__link">
-                                        <div class="col-12 navbar__link__icon">
-                                            <fa icon="home" />
-                                        </div>
-                                        <span>Como Funciona</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="navbar__link">
-                                        <div class="col-12 navbar__link__icon">
-                                            <fa icon="home" />
-                                        </div>
-                                        <span>Cotação</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="navbar__link">
-                                        <div class="col-12 navbar__link__icon">
-                                            <fa icon="home" />
-                                        </div>
-                                        <span>Rastreio</span>
-                                    </a>
-                                </li>
-                                <li class="d-lg-flex d-none">
-                                    <a href="#" class="navbar__link">
-                                        <div class="col-12 navbar__link__icon">
-                                            <fa icon="home" />
-                                        </div>
-                                        <span>Cadastrar-se</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="navbar__link">
-                                        <div class="col-12 navbar__link__icon">
-                                            <fa icon="home" />
-                                        </div>
-                                        <span>Entrar</span>
-                                    </a>
-                                </li>
+                />
+                <CargasLogoPreto 
+                
+                v-else
 
-                            </ul>
-                        </div>
-                    </div>
-                </div>    
+                key="navbarFixed" />
+              </a>
             </div>
-        </nav>
-    </header>
+
+            <div class="col-lg-auto col-12">
+              <ul class="navbar__ul__links d-flex justify-content-evenly">
+                <li>
+                  <a href="#" class="navbar__link">
+                    <div class="col-12 navbar__link__icon">
+                      
+                    </div>
+                    <span>Inicio</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="navbar__link">
+                    <div class="col-12 navbar__link__icon">
+                      
+                    </div>
+                    <span>Como Funciona</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="navbar__link">
+                    <div class="col-12 navbar__link__icon">
+                      
+                    </div>
+                    <span>Cotação</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="navbar__link">
+                    <div class="col-12 navbar__link__icon">
+                      
+                    </div>
+                    <span>Rastreio</span>
+                  </a>
+                </li>
+                <li class="d-lg-flex d-none">
+                  <a href="#" class="navbar__link">
+                    <div class="col-12 navbar__link__icon">
+                      
+                    </div>
+                    <span>Cadastrar-se</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="navbar__link">
+                    <div class="col-12 navbar__link__icon">
+                      
+                    </div>
+                    <span>Entrar</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 </template>
 
 <script>
+
+  import CargasLogoBase from "./assets/CargasLogoBase.vue";
+  import CargasLogoPreto from "./assets/CargasLogoPreto.vue";
+  import CargasHero from ".assets/CargasHero.vue"
+
 export default {
-    
+  components: {
+    CargasLogoBase,
+    CargasLogoPreto,
+    CargasHero
+  }
 }
+
 </script>
 
 <style scoped>
+.navbar__top {
+  z-index: 9999;
 
-    .navbar__top{
-        z-index: 9999;
-    }
+}
 
-    .navBackground.fixed{
-        position: fixed;
+.navBackground.fixed {
+  position: fixed;
 
-        background: var(--accent-base);
-    }
+  background: var(--accent-base);
 
-    .logo{
+  z-index: 10000;
+}
 
-        width: auto;
-        height: 80px;
+.navBackground.fixed .navbar__link span {
+  color: var(--accent-9);
+}
 
-        object-fit: contain;
+.logo {
+  width: auto;
+  height: 80px;
 
-        padding-top: var(--px8);
-        padding-bottom: var(--px8);
-    }
+  object-fit: contain;
 
-    .navbar__ul__links{
-        display: flex;
-        align-items: center;
+  padding-top: var(--px8);
+  padding-bottom: var(--px8);
+}
 
-        height: 100%;
+.navbar__ul__links {
+  display: flex;
+  align-items: center;
 
-        z-index: 100;
-    }
+  height: 100%;
 
-    .navbar__ul__links li{
-        margin-right: var(--px16);
-        margin-left: var(--px16);
-    }
+  z-index: 100;
+}
 
-    .navbar__ul__links li:last-of-type{
-        margin-right: 0;
-    }
+.navbar__ul__links li {
+  margin-right: var(--px16);
+  margin-left: var(--px16);
+}
 
-    .navbar__link span{
-        color: var(--accent-0);
+.navbar__ul__links li:last-of-type {
+  margin-right: 0;
+}
 
-        font-family: var(--rcondensed);
-        font-size: var(--px18);
-        line-height: 21px;
+.navbar__link span {
+  color: var(--accent-0);
 
-        margin-right: 0;
-    }
+  font-family: var(--rcondensed);
+  font-size: var(--px18);
+  line-height: 21px;
 
-    .navBackground.fixed .navbar__link{
-        color: var(--accent-9);
-    }
+  margin-right: 0;
 
-    .navbar__link__icon{
-        display: none;
-    }
+  position: relative;
 
-    /* sm */
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
 
-    @media (max-width: 280px) {
+.navbar__link span::before {
+  content: "";
+  border-bottom: 3px solid var(--accent-9);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
 
-        .navbar__ul__links li{
-            margin-right: var(--px4);
-            margin-left: var(--px4);
-        }
+  width: 0%;
 
-        .navbar__ul__links li:last-of-type{
-            margin-left: var(--px4);
-            margin-right: var(--px4);
-        }
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
 
-    }
+.navbar__link:hover span::before {
+  width: 100%;
+}
 
-    @media (min-width: 280.98px) and (max-width: 767.98px) {
+.navbar__link:hover span {
+  color: var(--accent-2);
+}
 
-        .navbar__ul__links{
+.navBackground.fixed .navbar__link {
+  color: var(--accent-9);
+}
 
-            position: fixed;
+.navbar__link__icon {
+  display: none;
+}
 
-            bottom: 0;
-            right: 0;
-            left: 0;
+/* sm */
 
-            height: auto;
+@media (max-width: 767.98px) {
+  .navbar__ul__links {
+    position: fixed;
 
-            background-color: var(--accent-0);
+    bottom: 0;
+    right: 0;
+    left: 0;
 
-            padding-top: var(--px16);
-            padding-bottom: var(--px16);
+    height: auto;
 
-        }
+    background-color: var(--accent-0);
 
-        .navbar__link span{
-            font-size: var(--px10);
-            color: var(--accent-9);
-        }
+    padding-top: var(--px8);
+    padding-bottom: var(--px8);
+  }
 
-        .navbar__ul__links li{
-            margin-right: var(--px8);
-            margin-left: var(--px8);
-        }
+  .navbar__link span {
+    font-size: var(--px10);
+    color: var(--accent-9);
+  }
 
-        .navbar__ul__links li:last-of-type{
-            margin-left: var(--px8);
-            margin-right: var(--px8);
-        }
+  .navbar__ul__links li {
+    margin-right: var(--px8);
+    margin-left: var(--px8);
+  }
 
-        .navbar__link__icon{
-            display: flex;
-            justify-content: center;
+  .navbar__ul__links li:last-of-type {
+    margin-left: var(--px8);
+    margin-right: var(--px8);
+  }
 
-            margin-bottom: var(--px8);
-        }
-    }
+  .navbar__link__icon {
+    display: flex;
+    justify-content: center;
+  }
+}
 
-    /* md */
+/* md */
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  .navbar__ul__links {
+    position: fixed;
 
-        .navbar__ul__links{
+    bottom: 0;
+    right: 0;
+    left: 0;
 
-            position: fixed;
+    height: auto;
 
-            bottom: 0;
-            right: 0;
-            left: 0;
+    background-color: var(--accent-0);
 
-            height: auto;
+    padding-top: var(--px16);
+    padding-bottom: var(--px16);
+  }
 
-            background-color: var(--accent-0);
+  .navbar__link span {
+    font-size: var(--px16);
+    color: var(--accent-9);
+  }
 
-            padding-top: var(--px16);
-            padding-bottom: var(--px16);
+  .navbar__ul__links li:last-of-type {
+    margin-left: var(--px16);
+    margin-right: var(--px16);
+  }
 
-        }
+  .navbar__link__icon {
+    display: flex;
+    justify-content: center;
 
-        .navbar__link span{
-            font-size: var(--px16);
-            color: var(--accent-9);
-        }
+    margin-bottom: var(--px8);
+  }
+}
 
-        .navbar__ul__links li:last-of-type{
-            margin-left: var(--px16);
-            margin-right: var(--px16);
+/* lg */
 
-            
-        }
+@media (min-width: 1024px) {
+  .navBackground.fixed {
+    position: fixed;
 
-        .navbar__link__icon{
-            display: flex;
-            justify-content: center;
+    background: var(--accent-base);
 
-            margin-bottom: var(--px8);
-        }
-    }
+    z-index: 10000;
 
-    /* lg */
+    transform: translateY(-30px);
 
-    @media (min-width: 1024px) and (max-width:1239.88px) {
-        
-        
-
-    }
-
+    animation: slideDown 0.2s forwards;
+  }
+}
 </style>
